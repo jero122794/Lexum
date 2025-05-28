@@ -1,0 +1,38 @@
+.navbar {
+  background-color: white;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.mainNav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.login {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.register {
+  background-color: #1e40af;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
