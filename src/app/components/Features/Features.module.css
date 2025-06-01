@@ -1,0 +1,130 @@
+.featuresSection {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  color: #0f0f3e;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.featuresHeader {
+  max-width: 768px;
+  margin: 0 auto 3rem auto;
+}
+
+.featuresTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1D1B3B;
+  font-family: 'Nexa', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.featuresSubtitle {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Wrapper para scroll horizontal */
+.sliderWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+
+.sliderWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Grid general */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Card completa */
+.featureCard {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  box-shadow: 0 10px 20px rgba(15, 15, 62, 0.1);
+}
+
+/* Imagen superior */
+.featureImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* Contenido dentro de la card */
+.featureContent {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+/* Título */
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1D1B3B;
+  font-family: 'Nexa', sans-serif;
+}
+
+/* Descripción */
+.featureDescription {
+  font-size: 0.95rem;
+  color: #475569;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Link inferior */
+.featureLink {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #4F46E5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-family: 'Nexa', sans-serif;
+}
+
+.featureLink:hover {
+  color: #3730a3;
+}
+
+/* Responsive mobile: slider horizontal */
+@media (max-width: 768px) {
+  .featuresGrid {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .featureCard {
+    min-width: 320px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .sliderWrapper {
+    scroll-snap-type: x mandatory;
+  }
+}

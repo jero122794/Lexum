@@ -1,0 +1,84 @@
+.adminTools {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.grid {
+  display: flex;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Columna izquierda: card principal */
+.main {
+  flex: 2 1 600px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Columna derecha: dos pequeñas */
+.rightColumn {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Cards pequeñas */
+.small {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen común */
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Overlay común */
+.overlay {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.overlay h3,
+.overlay h4 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'Nexa', sans-serif;
+}
+
+.overlay p {
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    flex-direction: column;
+  }
+
+  .main,
+  .small {
+    aspect-ratio: 16 / 9;
+  }
+}

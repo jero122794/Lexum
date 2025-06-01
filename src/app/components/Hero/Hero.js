@@ -1,20 +1,29 @@
+import styles from './Hero.module.css';
+
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-text">
-        <span className="tag">PLATAFORMA LEGAL INTEGRAL</span>
-        <h1>Gestión legal inteligente para profesionales</h1>
-        <p>
-          Lexum combina IA avanzada con herramientas de gestión para optimizar todos los aspectos
-          de tu práctica legal: consultas, documentos, citas y más.
-        </p>
-        <div className="hero-actions">
-          <button className="primary">Comenzar ahora</button>
-          <button className="secondary">Ver demo</button>
+    <section className={styles.hero}>
+      <div className={styles.heroContainer}>
+        <div className={styles.heroContent}>
+          <span className={styles.tag}>Plataforma legal integral</span>
+          <h1 className={styles.heroTitle}>
+            Gestión legal <br /> inteligente para profesionales
+          </h1>
+          <p className={styles.heroText}>
+            Lexum combina IA avanzada con herramientas de gestión para optimizar todos los aspectos de tu práctica legal: consultas, documentos, citas y más.
+          </p>
+          <div className={styles.heroButtons}>
+            <button className={styles.primaryBtn}>Comenzar ahora</button>
+            <button className={styles.secondaryBtn}>
+              <span>▶</span> Ver demo
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="hero-image">
-        <img src="/images/dashboard.png" alt="Dashboard Legal" />
+        <img
+          src="/Hero_Image.png"
+          alt="Interfaz Lexum"
+          className={styles.heroImage}
+        />
       </div>
     </section>
   );

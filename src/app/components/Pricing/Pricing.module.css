@@ -1,0 +1,186 @@
+.pricing {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  text-align: center;
+  color: #0f172a;
+}
+
+.header {
+  margin-bottom: 3rem;
+  max-width: 768px;
+  margin-inline: auto;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Nexa', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #64748b;
+  font-family: 'Roboto', sans-serif;
+}
+
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 320px;
+  flex: 1 1 300px;
+  box-shadow: 0 0 0 1px #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Nexa', sans-serif;
+}
+
+.card h3 small {
+  display: block;
+  font-size: 0.85rem;
+  color: #4F46E5;
+  margin-top: 0.25rem;
+  font-family: 'Nexa', sans-serif;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: 'Nexa', sans-serif;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Botón normal */
+.btn {
+  background-color: #E5E7EB;
+  color: #1D1B3B;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn:hover {
+  background-color: #d1d5db;
+}
+
+/* Botón destacado */
+.btnFeatured {
+  background-color: #4F46E5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Nexa', sans-serif;
+}
+  
+
+.btnFeatured:hover {
+  background-color: #4338ca;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Enlace */
+.card a {
+  font-size: 0.85rem;
+  color: #4F46E5;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Plan destacado */
+.featured {
+  border: 2px solid #4F46E5;
+  background-color: #F5F3FF;
+  transform: scale(1.05);
+  z-index: 1;
+  box-shadow: 0 0 0 2px #4F46E5;
+  font-family: 'Roboto', sans-serif;
+}
+
+.featured .price {
+  color: #4F46E5;
+}
+
+.featured .note {
+  color: #4B5563;
+}
+
+.featured a {
+  color: #4F46E5;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -1.25rem;
+  background-color: #4F46E5;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plans {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
