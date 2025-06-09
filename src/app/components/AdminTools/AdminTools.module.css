@@ -37,6 +37,13 @@
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.small:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 /* Imagen común */
@@ -80,5 +87,15 @@
   .main,
   .small {
     aspect-ratio: 16 / 9;
+  }
+
+  .rightColumn {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .small {
+    flex: 1 1 100%;
   }
 }

@@ -44,8 +44,9 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.25s ease;
   position: relative;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -110,7 +111,6 @@
   transition: background 0.2s ease;
   font-family: 'Nexa', sans-serif;
 }
-  
 
 .btnFeatured:hover {
   background-color: #4338ca;
@@ -160,7 +160,7 @@
 }
 
 /* Badge */
-.badge {
+.featuredTop {
   position: absolute;
   top: -1.25rem;
   background-color: #4F46E5;
@@ -171,6 +171,15 @@
   border-radius: 9999px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* Card activa */
+.active {
+  border: 10px solid #4F46E5;
+  border-top: 35px solid #4F46E5 ;
+  box-shadow: 0 0 0 2px #4F46E5;
+  transform: scale(1.03);
+  z-index: 2;
 }
 
 /* Responsive */

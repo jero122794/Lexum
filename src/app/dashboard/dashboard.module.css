@@ -1,0 +1,213 @@
+.dashboard {
+  padding: 2rem;
+  background-color: #f9fafb;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1D1B3B;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* RESUMEN PRINCIPAL */
+.overview {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 0 1px #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1D1B3B;
+}
+
+.card span {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* CUERPO PRINCIPAL */
+.grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.panel {
+  flex: 2;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+.side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.panelHeader h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.panelHeader a {
+  font-size: 0.85rem;
+  color: #4F46E5;
+  text-decoration: none;
+}
+
+.panelHeader a:hover {
+  text-decoration: underline;
+}
+
+/* TABLA CASOS */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table td span {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* ETIQUETAS DE ESTADO */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.yellow {
+  background-color: #fef9c3;
+  color: #b45309;
+}
+
+.red {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* CALENDARIO SIMPLIFICADO */
+.calendar {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 1px #e5e7eb;
+}
+
+.calendarBox {
+  margin: 1rem 0;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.date {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+.activeDate {
+  background-color: #4F46E5;
+  color: white;
+}
+
+/* EVENTOS */
+.events {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* DOCUMENTOS RECIENTES */
+.docs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.docs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+@media (max-width: 1024px) {
+  .overview {
+    flex-direction: column;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
