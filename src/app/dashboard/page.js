@@ -78,7 +78,7 @@ export default function DashboardHome() {
               <a href="#">Ver todo</a>
             </div>
             <div className={styles.calendarBox}>
-              <strong>Junio 2023</strong>
+              <strong>Junio 2025</strong>
               <div className={styles.dates}>
                 {[...Array(30)].map((_, i) => (
                   <div key={i} className={`${styles.date} ${i === 15 ? styles.activeDate : ''}`}>
@@ -90,7 +90,7 @@ export default function DashboardHome() {
             <div className={styles.events}>
               <strong>Próximos eventos</strong>
               <p><b>Audiencia</b> – Caso Tech Solutions</p>
-              <small>16 Jun 2023, 10:00 AM</small>
+              <small>16 Jun 2025, 10:00 AM</small>
             </div>
           </div>
         </div>

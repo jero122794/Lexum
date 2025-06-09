@@ -1,15 +1,18 @@
 // src/app/dashboard/layout.js
 'use client';
 import Sidebar from './Sidebar/Sidebar';
-import './dashboard.module.css'; // si tenés estilos globales, opcional
+import Navbar from './components/Navbar/Navbar';
 
 export default function DashboardLayout({ children }) {
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar />
-      <main style={{ flex: 1, padding: '2rem', backgroundColor: '#f9fafb' }}>
-        {children}
-      </main>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Navbar />
+        <main style={{ padding: '2rem', flexGrow: 1, backgroundColor: '#f9fafb' }}>
+          {children}
+        </main>
+      </div>
     </div>
   );
 }
