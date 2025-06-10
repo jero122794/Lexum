@@ -1,26 +1,18 @@
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Features from './components/Features/Features';
-import Interface from './components/Interface/Interface';
-import Testimonials from './components/Testimonials/Testimonials';
-import AdminTools from './components/AdminTools/AdminTools';
-import Pricing from './components/Pricing/Pricing';
-import CTA from './components/CTA/CTA';
-import Footer from './components/Footer/Footer';
-
+'use client';
+import LazySection from './components/LazySection/LazySection';
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Features />
-      <Interface />
-      <Testimonials />
-      <AdminTools />
-      <Pricing />
-      <CTA />
-      <Footer />
+      <LazySection importFn={() => import('./components/Navbar/Navbar')} />
+      <LazySection importFn={() => import('./components/Hero/Hero')} />
+      <LazySection importFn={() => import('./components/Features/Features')} />
+      <LazySection importFn={() => import('./components/Interface/Interface')} />
+      <LazySection importFn={() => import('./components/Testimonials/Testimonials')} />
+      <LazySection importFn={() => import('./components/AdminTools/AdminTools')} />
+      <LazySection importFn={() => import('./components/Pricing/Pricing')} />
+      <LazySection importFn={() => import('./components/CTA/CTA')} />
+      <LazySection importFn={() => import('./components/Footer/Footer')} />
     </>
   );
 }

@@ -1,17 +1,4 @@
-@font-face {
-  font-family: 'Roboto';
-  src: url('../../public/fonts/Roboto-Regular.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nexa';
-  src: url('../../public/fonts/Nexa-Heavy.ttf') format('ttf');
-  font-weight: 700;
-  font-style: normal;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
   --background-blue: #1D1B3B;
@@ -30,4 +17,45 @@ html, body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+
+/* Inter */
+
+.inter-regular {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-semibold {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.inter-bold {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Roboto */
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
