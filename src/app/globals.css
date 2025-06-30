@@ -1,13 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-  --background-blue: #1D1B3B;
-  --background-diamond: #E5E7EB;
-  --background-bluelight:#463fda;
-  --color-white: #ffffff;
-  --color-gray: #475569;
-  --color-graylight:#6b7280;
-  --color-wg:#f9fafb;
+/* ==================================== */
+/* VARIABLES DE COLOR         */
+/* ==================================== */
+
+:root {
+  /* ------------------- COLORES PRINCIPALES Y DE MARCA ------------------- */
+  --primary-color: #4F46E5;        /* Azul/Púrpura principal de la marca (botones, acentos) */
+  --primary-hover-color: #3e38c4;  /* Hover para el color primario */
+  --secondary-color: #1D1B3B;      /* Color secundario oscuro, ideal para texto y fondos */
+  --secondary-hover-color: #2d2b5c;/* Hover para el color secundario */
+  --accent-blue: #3182ce;          /* Azul de acento para enlaces y elementos interactivos */
+  --accent-blue-light: #e0f2fe;    /* Fondo claro para acento azul */
+
+  /* ------------------- COLORES DE TEXTO ------------------- */
+  --text-dark: #1a202c;            /* Texto muy oscuro, para títulos principales */
+  --text-medium: #374151;          /* Texto intermedio, para subtítulos y contenido */
+  --text-light: #6b7280;           /* Texto gris claro, para descripciones y placeholders */
+  --text-subtle: #9ca3af;          /* Texto muy sutil, para metadatos o texto de menor jerarquía */
+
+  /* ------------------- COLORES DE FONDO Y BORDES ------------------- */
+  --background-color: #f9fafb;     /* Fondo general de la aplicación */
+  --card-background: #ffffff;      /* Fondo de las tarjetas y paneles */
+  --border-color: #e5e7eb;         /* Borde estándar para cards e inputs */
+  --divider-color: #e5e7eb;        /* Color para divisores y líneas */
+
+  /* ------------------- COLORES DE ESTADO (Badges y Alerts) ------------------- */
+  /* Estado de Éxito / En curso */
+  --success-bg: #dcfce7;           /* Fondo verde claro */
+  --success-text: #15803d;          /* Texto verde oscuro */
+
+  /* Estado de Alerta / En revisión / Borrador */
+  --warning-bg: #fef9c3;           /* Fondo amarillo claro */
+  --warning-text: #b45309;          /* Texto amarillo oscuro */
+
+  /* Estado de Error / Urgente / Pendiente */
+  --danger-bg: #fee2e2;            /* Fondo rojo claro */
+  --danger-text: #b91c1c;           /* Texto rojo oscuro */
+
+  /* Estado de Información / Activo */
+  --info-bg: #e6fffa;              /* Fondo cian claro */
+  --info-text: #38b2ac;            /* Texto cian oscuro */
+
+  /* ------------------- SOMBRAS ------------------- */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif; /* Usaremos Inter como una fuente moderna y limpia, similar a la imagen */
+  background-color: var(--background-light);
+  color: var(--primary-text-color);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 

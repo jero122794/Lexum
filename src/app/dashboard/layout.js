@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }) {
       <Sidebar />
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Navbar />
-        <main style={{ padding: '2rem', flexGrow: 1, backgroundColor: '#f9fafb' }}>
+        <main style={{ flexGrow: 1, backgroundColor: '#f9fafb' }}>
           {children}
         </main>
       </div>
