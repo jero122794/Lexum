@@ -19,14 +19,13 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
-  /* COLORES DE ESTADO (Reutilizados) */
-  --badge-green-bg: #dcfce7;
-  --badge-green-text: #15803d;
-  --badge-yellow-bg: #fef9c3;
-  --badge-yellow-text: #b45309;
-  --badge-red-bg: #fee2e2;
-  --badge-red-text: #b91c1c;
-  --danger-text: #b91c1c;
+  /* COLORES DE TIPOS (Badges) */
+  --badge-natural-bg: #e2e8f0;
+  --badge-natural-text: #4b5563;
+  --badge-juridica-bg: #dbeafe;
+  --badge-juridica-text: #1e40af;
+
+  --danger-text: #b91c1c; /* Para el botón de eliminar */
   --danger-bg: #fee2e2;
 }
 
@@ -292,23 +291,71 @@
 /* ==================================== */
 /* MODAL PARA CREAR CONTRATO          */
 /* ==================================== */
+
 .modalBackdrop {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.6); display: flex; align-items: center;
   justify-content: center; z-index: 1000; padding: 1rem;
 }
+
 .modalContent {
-  background-color: var(--card-background); padding: 2.5rem; border-radius: 1.5rem;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); width: 100%; max-width: 600px;
-  display: flex; flex-direction: column; gap: 1.5rem; animation: fadeInScale 0.3s ease-out;
+  /* Contenedor Flexbox para el layout del modal */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background);
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 650px; /* Aumentamos el ancho para más campos */
+  max-height: 90vh; /* La clave para el scroll */
+  overflow: hidden; /* Oculta la barra de scroll del contenedor principal */
+  animation: fadeInScale 0.3s ease-out;
 }
 @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-.modalHeader { display: flex; justify-content: space-between; align-items: center; }
+
+.modalHeader {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 2rem 2.5rem 1.5rem; /* Padding más generoso */
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0; /* No permite que el header se encoja */
+}
 .modalTitle { font-size: 1.5rem; font-weight: 700; margin: 0; }
 .closeButton { background: none; border: none; font-size: 1.5rem; color: var(--text-light); cursor: pointer; }
-.modalForm { display: flex; flex-direction: column; gap: 1rem; }
-.formGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem 2rem; }
-.formGroup { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+
+/* Contenedor principal del formulario, con scroll */
+.modalForm {
+  flex-grow: 1; /* Ocupa el espacio restante en el contenedor flex */
+  overflow-y: auto; /* ¡La magia del scroll! */
+  padding: 0 2.5rem; /* Padding horizontal para el contenido */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.formScrollWrapper { /* Ya no es necesario si el .modalForm es el scrollable */ }
+
+/* Pie de página con los botones de acción */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 2.5rem 2rem; /* Padding inferior generoso */
+  border-top: 1px solid var(--border-color);
+  background-color: var(--card-background); /* Fondo para que sea opaco */
+  position: sticky; /* Fija los botones al final */
+  bottom: 0;
+  flex-shrink: 0; /* No permite que el pie de página se encoja */
+}
+
+/* Estilos de los campos y grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ancho mínimo para los campos */
+  gap: 1.5rem 2rem;
+  padding-top: 1.5rem;
+}
+.formGroup {
+  display: flex; flex-direction: column; gap: 0.5rem; min-width: 0;
+}
 .formGroup label { font-size: 0.9rem; font-weight: 600; color: var(--text-medium); }
 .formGroup input, .formGroup textarea, .formGroup select {
   width: 100%; padding: 1rem; border-radius: 1rem; border: 1px solid var(--border-color);
@@ -319,7 +366,7 @@
   outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 .formGroup textarea { min-height: 100px; resize: vertical; }
-.modalActions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; }
+
 .modalButton { padding: 1rem 2rem; border-radius: 1rem; font-weight: 600; cursor: pointer; font-size: 1rem; transition: background-color 0.2s ease; }
 .cancelButton { background-color: transparent; color: var(--text-medium); border: 1px solid var(--border-color); }
 .cancelButton:hover { background-color: var(--background-color); }
@@ -334,6 +381,7 @@
 @media (max-width: 1024px) {
   .contractsContainer { padding: 1.5rem; }
   .templateGrid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .modalContent { max-width: 90vw; }
 }
 
 @media (max-width: 768px) {
@@ -342,5 +390,8 @@
   .headerButtons { width: 100%; justify-content: stretch; }
   .aiButton, .newContractButton { flex: 1; justify-content: center; }
   .modalContent { padding: 1.5rem; border-radius: 1rem; }
+  .modalHeader { padding: 1.5rem; }
+  .modalForm { padding: 0 1.5rem; }
+  .modalActions { padding: 1.5rem; }
   .formGrid { grid-template-columns: 1fr; }
 }
