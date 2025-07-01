@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react'; // Importa useCallback
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
-// Importá los modales
+// Importá los modales (asumo que son componentes modales y no directamente las páginas de ruta)
 import LoginModal from '../../login/page';
 import RegisterModal from '../../register/page';
 
@@ -15,18 +15,49 @@ export default function Navbar() {
   const [showRegister, setShowRegister] = useState(false);
   const pathname = usePathname();
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const closeMenu = () => setMenuOpen(false);
+  // Optimizamos las funciones con useCallback
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
+
+  const handleShowLogin = useCallback(() => {
+    closeMenu();
+    setShowLogin(true);
+  }, [closeMenu]);
+
+  const handleShowRegister = useCallback(() => {
+    closeMenu();
+    setShowRegister(true);
+  }, [closeMenu]);
+
+  const handleCloseLogin = useCallback(() => setShowLogin(false), []);
+  const handleCloseRegister = useCallback(() => setShowRegister(false), []);
+
+  const handleSwitchToRegister = useCallback(() => {
+    setShowLogin(false);
+    setShowRegister(true);
+  }, []);
+
+  const handleSwitchToLogin = useCallback(() => {
+    setShowRegister(false);
+    setShowLogin(true);
+  }, []);
+
 
   return (
     <>
       <header className={styles.navbar}>
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo} onClick={closeMenu}>
           <img src="/Recurso 20.svg" alt="Logo LEXEUM" className={styles.logoImg} />
           LEXEUM
-        </div>
+        </Link>
 
-        <div className={styles.menuToggle} onClick={toggleMenu}>
+        {/* Agregamos la clase .open al menuToggle para animar el hamburguesa */}
+        <div className={`${styles.menuToggle} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
@@ -54,20 +85,14 @@ export default function Navbar() {
           <div className={styles.authButtons}>
             <button
               className={styles.login}
-              onClick={() => {
-                closeMenu();
-                setShowLogin(true);
-              }}
+              onClick={handleShowLogin}
             >
               Acceso
             </button>
 
             <button
               className={styles.register}
-              onClick={() => {
-                closeMenu();
-                setShowRegister(true);
-              }}
+              onClick={handleShowRegister}
             >
               Inscribirse
             </button>
@@ -77,24 +102,18 @@ export default function Navbar() {
 
       {/* MODALES */}
       {showLogin && (
-  <LoginModal
-    onClose={() => setShowLogin(false)}
-    onSwitch={() => {
-      setShowLogin(false);
-      setShowRegister(true);
-    }}
-  />
-)}
+        <LoginModal
+          onClose={handleCloseLogin}
+          onSwitch={handleSwitchToRegister}
+        />
+      )}
 
-{showRegister && (
-  <RegisterModal
-    onClose={() => setShowRegister(false)}
-    onSwitch={() => {
-      setShowRegister(false);
-      setShowLogin(true);
-    }}
-  />
-)}
+      {showRegister && (
+        <RegisterModal
+          onClose={handleCloseRegister}
+          onSwitch={handleSwitchToLogin}
+        />
+      )}
     </>
   );
 }
