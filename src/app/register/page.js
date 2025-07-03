@@ -1,7 +1,7 @@
 'use client';
 import styles from './Register.module.css';
 
-export default function Register({ onClose, onSwitch }) {
+export default function RegisterModal({ onClose, onSwitch }) { // Cambiado a RegisterModal
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>

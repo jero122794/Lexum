@@ -1,13 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* src/app/global.css o tu archivo central de variables */
 
-:root{
-  --background-blue: #1D1B3B;
-  --background-diamond: #E5E7EB;
-  --background-bluelight:#463fda;
-  --color-white: #ffffff;
-  --color-gray: #475569;
-  --color-graylight:#6b7280;
-  --color-wg:#f9fafb;
+:root {
+  /* ------------------- COLORES PRINCIPALES Y DE MARCA ------------------- */
+  --primary-color: #4F46E5;        /* Azul/Púrpura principal de la marca (botones, acentos) */
+  --primary-hover-color: #3e38c4;  /* Hover para el color primario */
+  --secondary-color: #1D1B3B;      /* Color secundario oscuro, ideal para texto y fondos */
+  --secondary-hover-color: #2d2b5c;/* Hover para el color secundario */
+  --accent-blue: #3182ce;          /* Azul de acento para enlaces y elementos interactivos */
+  --accent-blue-light: #e0f2fe;    /* Fondo claro para acento azul */
+
+  /* ------------------- COLORES DE TEXTO ------------------- */
+  --text-dark: #1a202c;            /* Texto muy oscuro, para títulos principales */
+  --text-medium: #374151;          /* Texto intermedio, para subtítulos y contenido */
+  --text-light: #6b7280;           /* Texto gris claro, para descripciones y placeholders */
+  --text-subtle: #9ca3af;          /* Texto muy sutil, para metadatos o texto de menor jerarquía */
+
+  /* ------------------- COLORES DE FONDO Y BORDES ------------------- */
+  --background-color: #f9fafb;     /* Fondo general de la aplicación */
+  --card-background: #ffffff;      /* Fondo de las tarjetas y paneles */
+  --border-color: #e5e7eb;         /* Borde estándar para cards e inputs */
+  --divider-color: #e5e7eb;        /* Color para divisores y líneas */
+
+  /* ------------------- COLORES DE ESTADO (Genéricos como "success", "warning") ------------------- */
+  --success-bg: #dcfce7;           /* Fondo verde claro */
+  --success-text: #15803d;          /* Texto verde oscuro */
+  --warning-bg: #fef9c3;           /* Fondo amarillo claro */
+  --warning-text: #b45309;          /* Texto amarillo oscuro */
+  --danger-bg: #fee2e2;            /* Fondo rojo claro */
+  --danger-text: #b91c1c;           /* Texto rojo oscuro */
+  --info-bg: #e6fffa;              /* Fondo cian claro */
+  --info-text: #38b2ac;            /* Texto cian oscuro */
+
+  /* ------------------- COLORES DE BADGES ESPECÍFICOS (adicionales por componente) ------------------- */
+  /* Estos se usaron para estados de Casos, Documentos y tipos de Clientes */
+  --badge-green-bg: #dcfce7;       /* Ej: "En curso", "Firmado" */
+  --badge-green-text: #15803d;
+  --badge-yellow-bg: #fef9c3;      /* Ej: "En revisión", "Borrador" */
+  --badge-yellow-text: #b45309;
+  --badge-red-bg: #fee2e2;         /* Ej: "Urgente", "Pendiente" */
+  --badge-red-text: #b91c1c;
+  --badge-blue-bg: #dbeafe;         /* Ej: "Completado", "Revisado" */
+  --badge-blue-text: #1e40af;
+  --badge-gray-bg: #e5e7eb;         /* Ej: "Document" (en documentos), o tipo "Natural" */
+  --badge-gray-text: #4b5563;
+
+  --badge-natural-bg: #e2e8f0;      /* Específico para Clientes: Tipo "Natural" (puede repetir gray-bg) */
+  --badge-natural-text: #4b5563;    /* Específico para Clientes: Tipo "Natural" (puede repetir gray-text) */
+  --badge-juridica-bg: #dbeafe;     /* Específico para Clientes: Tipo "Juridica" (puede repetir blue-bg) */
+  --badge-juridica-text: #1e40af;   /* Específico para Clientes: Tipo "Juridica" (puede repetir blue-text) */
+
+  /* ------------------- SOMBRAS ------------------- */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* ------------------- COLORES ESPECÍFICOS DEL GRADIENTE (para Hero, Testimonials) ------------------- */
+  /* Si el gradiente utiliza colores que no son exactamente de la paleta principal o quieres alias dedicados */
+  --gradient-start-color: var(--badge-natural-bg); /* Mapea a #E5E7EB */
+  --gradient-mid-color: var(--primary-color);
+  --gradient-end-color: var(--secondary-color);
+
+  --featured-card-bg: #f5f3ff; /* Color de fondo específico para la tarjeta destacada en Pricing */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif; /* Usaremos Inter como una fuente moderna y limpia, similar a la imagen */
+  background-color: var(--background-light);
+  color: var(--primary-text-color);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 

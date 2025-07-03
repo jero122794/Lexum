@@ -5,14 +5,18 @@ import { usePathname } from 'next/navigation';
 import styles from './Sidebar.module.css';
 import {
   FiMenu,
+  FiHome,
   FiUser,
   FiFileText,
   FiCalendar,
-  FiBookOpen,
+  FiBriefcase, // Cambiamos FiBookOpen por FiBriefcase para un ícono de "Casos"
   FiSearch,
   FiMessageSquare,
-  FiSettings
+  FiSettings,
+  FiLogOut,
+  FiFolder, // Nuevo ícono para Documentos
 } from 'react-icons/fi';
+
 
 export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,81 +26,99 @@ export default function Sidebar() {
 
   return (
     <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
+      {/* TOP */}
       <div className={styles.topSection}>
+        {!collapsed && <h1 className={styles.logo}>LEXEUM</h1>}
         <button className={styles.toggleBtn} onClick={toggleSidebar}>
           <FiMenu />
         </button>
-        {!collapsed && <h1 className={styles.logo}>LEXEUM</h1>}
       </div>
 
+      {/* MENÚ PRINCIPAL */}
       <nav className={styles.menu}>
-        {/* SECCIONES COMENTADAS PARA FUTURO
-        <Link href="/dashboard">
+        {/* Sección: General */}
+        {!collapsed && <div className={styles.menuSectionTitle}>General</div>}
+        <Link href="/dashboard" passHref>
           <div className={`${styles.item} ${pathname === '/dashboard' ? styles.active : ''}`}>
-            <FiUser />
-            {!collapsed && <span>Dashboard</span>}
+            <FiHome/>
+            <span>Inicio</span>
           </div>
         </Link>
-        <Link href="/dashboard/casos">
-          <div className={`${styles.item} ${pathname === '/dashboard/casos' ? styles.active : ''}`}>
-            <FiUser />
-            {!collapsed && <span>Casos</span>}
-          </div>
-        </Link>
-        <Link href="/dashboard/clientes">
-          <div className={`${styles.item} ${pathname === '/dashboard/clientes' ? styles.active : ''}`}>
-            <FiUser />
-            {!collapsed && <span>Clientes</span>}
-          </div>
-        </Link>
-        <Link href="/dashboard/contratos">
-          <div className={`${styles.item} ${pathname === '/dashboard/contratos' ? styles.active : ''}`}>
-            <FiFileText />
-            {!collapsed && <span>Contratos</span>}
-          </div>
-        </Link>
-        <Link href="/dashboard/documentos">
-          <div className={`${styles.item} ${pathname === '/dashboard/documentos' ? styles.active : ''}`}>
-            <FiFileText />
-            {!collapsed && <span>Documentos</span>}
-          </div>
-        </Link>
-        <Link href="/dashboard/calendario">
-          <div className={`${styles.item} ${pathname === '/dashboard/calendario' ? styles.active : ''}`}>
-            <FiCalendar />
-            {!collapsed && <span>Calendario</span>}
-          </div>
-        </Link>
-        <Link href="/dashboard/legelresearch">
-          <div className={`${styles.item} ${pathname === '/dashboard/legelresearch' ? styles.active : ''}`}>
-            <FiSearch />
-            {!collapsed && <span>Legal Research</span>}
-          </div>
-        </Link>
-        */}
 
-        {/* ACTIVA: Asistente Legal IA */}
-        <Link href="/dashboard/asistente-ia">
-          <div className={`${styles.item} ${pathname === '/dashboard/asistente-ia' ? styles.active : ''}`}>
+        {/* Sección: Clientes y Casos */}
+        {!collapsed && <div className={styles.menuSectionTitle}>Clientes y Casos</div>}
+        <Link href="/dashboard/casos" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/casos') ? styles.active : ''}`}>
+            <FiBriefcase /> {/* Ícono de maletín para "Casos" */}
+            <span>Casos</span>
+          </div>
+        </Link>
+
+        <Link href="/dashboard/clientes" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/clientes') ? styles.active : ''}`}>
+            <FiUser />
+            <span>Clientes</span>
+          </div>
+        </Link>
+
+        {/* Sección: Documentos y Calendario */}
+        {!collapsed && <div className={styles.menuSectionTitle}>Documentos</div>}
+        <Link href="/dashboard/contratos" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/contratos') ? styles.active : ''}`}>
+            <FiFileText />
+            <span>Contratos</span>
+          </div>
+        </Link>
+
+        <Link href="/dashboard/documentos" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/documentos') ? styles.active : ''}`}>
+            <FiFolder /> {/* Ícono de carpeta para "Documentos" */}
+            <span>Documentos</span>
+          </div>
+        </Link>
+         <Link href="/dashboard/calendario" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/calendario') ? styles.active : ''}`}>
+            <FiCalendar />
+            <span>Calendario</span>
+          </div>
+        </Link>
+
+
+        {/* Sección: Herramientas de IA */}
+        {!collapsed && <div className={styles.menuSectionTitle}>Herramientas IA</div>}
+        <Link href="/dashboard/legalresearch" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/legalresearch') ? styles.active : ''}`}>
+            <FiSearch />
+            <span>Legal Research</span>
+          </div>
+        </Link>
+
+        <Link href="/dashboard/asistente-ia" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/asistente-ia') ? styles.active : ''}`}>
             <FiMessageSquare />
-            {!collapsed && <span>Asistente Legal IA</span>}
+            <span>Asistente Legal IA</span>
           </div>
         </Link>
       </nav>
 
+      {/* CONFIGURACIÓN Y PERFIL */}
       <div className={styles.bottom}>
-        {/* <Link href="/dashboard/configuracion">
-          <div className={`${styles.item} ${pathname === '/dashboard/configuracion' ? styles.active : ''}`}>
+        <Link href="/dashboard/configuracion" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/configuracion') ? styles.active : ''}`}>
             <FiSettings />
             {!collapsed && <span>Configuración</span>}
           </div>
         </Link>
-        <Link href="/dashboard/perfil">
-          <div className={`${styles.item} ${pathname === '/dashboard/perfil' ? styles.active : ''}`}>
+        <Link href="/dashboard/perfil" passHref>
+          <div className={`${styles.item} ${pathname.startsWith('/dashboard/perfil') ? styles.active : ''}`}>
             <FiUser />
             {!collapsed && <span>Mi Perfil</span>}
           </div>
-        </Link> */}
+        </Link>
+        <div className={`${styles.item} ${styles.logoutItem}`} onClick={() => alert('Cerrar sesión')}>
+          <FiLogOut />
+          {!collapsed && <span>Cerrar sesión</span>}
+        </div>
       </div>
     </aside>
   );
